@@ -1,99 +1,130 @@
+# VAHSIR Bank
 
+A terminal-based banking system built in Python while learning programming fundamentals.
 
----
+This project simulates basic banking operations such as account creation, deposits, withdrawals, money transfers, transaction tracking, and administrative account management.
 
-```markdown
-# VAHSIR Bank — Core Banking Application & Flat-File Transaction Simulator
-
-A terminal-based banking simulation and primitive transactional accounting engine implemented in native Python. This architecture serves as a rigorous proof-of-concept for localized file-system data persistence, explicit multi-layer input validation barriers, operational session state tracking, and procedural software design patterns.
-
----
-
-## 🛠️ Technical Architecture & Engineering Metrics
-
-This platform structures transactional workflows without relying on external third-party database frameworks or Object-Relational Mappings (ORMs). Instead, it manages low-level **flat-file data persistence streams** directly, modeling data mutations, profile state records, and multi-user interaction cycles reliably.
-
-### Key Programmatic Highlights:
-* **Algorithmic Identifier Generation**: Uses a custom string manipulation algorithm to generate unique 11-digit account identifiers. The sequence parses structural indices of a user's name, extracts components into their respective decimal **ASCII values** (e.g., `R` $\rightarrow$ `82`), truncates the buffer strings, and introduces a randomized integer salt to eliminate structural key collisions.
-* **Stream-Based State Persistence**: Integrates context-managed file streams (`with open()`) across the database interface to ensure optimal file-descriptor cleanup and safe exit locks. State changes load data rows dynamically, isolate targeting indices, complete balance operations, and commit execution strings cleanly.
-* **Double-Entry Balance Multi-threading**: Guarantees transaction atomicity during peer-to-peer (P2P) local account payments. The transactional routing engine maps updates securely over the database layout—simultaneously debiting the sender's data row, applying a corresponding credit mutation to the receiver's data row, and enforcing a rollback exit state if invalid parameters are matched.
-* **Defensive Error Sanitization**: Guards runtime execution environments against accidental crashes or unexpected string formatting types. Dedicated try-except exception blocks catch type mismatches, enforce configuration-defined age boundaries, and parse balance values cleanly.
-* **Administrative Audit Deck**: Features an isolated command console guarded behind a rigid global passkey verification. Once authenticated, administrative actions access structural file buffers directly to run complete account purges, display global data strings, and evaluate transaction history arrays.
+The goal of this project was to apply core Python concepts in a real-world style application and gain hands-on experience with problem solving, data management, and program design.
 
 ---
 
-## 📂 System Data Schemas
+## Features
 
-### 📊 Persistent User Ledger (`user_data.csv`)
-Client profiles and active balances are consistently saved as structural string records using comma-separated attributes:
-```csv
-Name,Age,Type,AccountNumber,Password,Balance
+### Account Management
+- Create new bank accounts
+- Generate unique account numbers
+- Store account information
+- Account type selection (Savings / Current)
 
+### Authentication
+- Passkey-based account verification
+- Admin authentication system
+- Transaction confirmation using passkeys
+
+### Banking Operations
+- Deposit funds
+- Withdraw funds
+- Transfer money between accounts
+- Balance validation before transactions
+
+### Transaction Tracking
+- Generate unique transaction IDs
+- Record sender and receiver information
+- Store transaction amount and timestamp
+- View transaction history through the admin panel
+
+### Administrative Controls
+- View all account details
+- Delete user accounts
+- View complete transaction history
+- Password-protected admin access
+
+### Input Validation
+- Numeric menu validation using try-except
+- Age verification during account creation
+- Balance validation
+- Account existence checks
+- Prevention of self-transfers
+
+---
+
+## Technologies Used
+
+- Python 3
+- Dictionaries
+- Loops
+- Functions and Control Flow
+- Exception Handling
+- Random Module
+- Datetime Module
+
+---
+
+## Project Structure
+
+```text
+VAHSIR-Bank/
+│
+├── main.py
+├── README.md
+└── data/
+    ├── user_data.csv
+    ├── transactions.txt
+    └── feedback.txt
 ```
 
-*The engine uses native string methods (`.strip()`, `.split()`) to extract parameters reliably on runtime boot.*
+---
 
-### 📝 Historical Audit Logs (`transactions.txt`)
-
-Financial adjustments and fund routing tracks are permanently written as localized map strings to track activity logs:
+## Sample Transaction Record
 
 ```python
-{"Sender": "821051...", "Receiver": "651141...", "Type": "TRANSFER", "Amount": "$2000.00", "Time": "2026-05-24 15:31:03"}
-
+{
+    "Sender": "82105136516",
+    "Receiver": "65114149949",
+    "Amount": 2000,
+    "Time": "2026-05-24 15:31:03"
+}
 ```
 
 ---
 
-## 🚀 Local Installation & Execution
+## What I Learned
 
-To test the banking engine on your local machine, follow this initialization sequence:
+While building this project, I practiced:
 
-### System Prerequisites
-
-* Verify that an active installation of **Python 3.x** or higher is mapped inside your terminal environment's systemic path variables.
-
-### Boot Sequence:
-
-1. **Clone the Core Repository**:
-```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/vahsir-bank.git](https://github.com/YOUR_GITHUB_USERNAME/vahsir-bank.git)
-
-```
-
-
-2. **Move into the Active Project Working Directory**:
-```bash
-cd vahsir-bank
-
-```
-
-
-3. **Execute the Primary Application Script**:
-```bash
-python main.py
-
-```
-
-
+- Working with nested dictionaries
+- Input validation techniques
+- Error handling with try-except
+- Designing menu-driven applications
+- Managing application state
+- Using modules such as random and datetime
+- Structuring larger Python programs
 
 ---
 
-## 📈 Optimization Roadmap (Version 2.0 Benchmarks)
+## Future Improvements
 
-Future development sprints will move these flat data structures into an enterprise-grade framework:
+Planned upgrades include:
 
-1. **Cryptographic Credential Obfuscation (`hashlib`)**: Migrating raw-text passwords into non-invertible **SHA-256 secure hash strings** to follow true privacy guidelines.
-2. **Relational Database Migration (`sqlite3`)**: Switching plain-text file storage to indexed SQL database engines to write clean queries (`SELECT`, `UPDATE`) and prevent simultaneous access file corruption.
-3. **Decoupled User Interface Separation**: Isolating core transactional math scripts into separate backend code logic modules entirely apart from terminal menu inputs.
+- File handling for permanent data storage
+- Password hashing using hashlib
+- SQLite database integration
+- Transaction search functionality
+- Account update features
+- Interest calculation system
+- Graphical User Interface (GUI)
+- Modular project structure using functions and classes
 
 ---
 
-## 📜 Project Metrics & Certification
+## Author
 
-* **Lead Developer**: Rishav Kumar
-* **Development Cycle**: Completed & Audited in 2026.
-* **Project Classification**: Open-Source Academic Evaluation Portfolio Engine. Distributed under the MIT License framework.
+**Rishav Kumar**
 
-```
+Built independently while learning Python and software development.
 
-```
+---
+
+## License
+
+This project is released under the MIT License.
