@@ -1,0 +1,3 @@
+{"Sender's Account Number": '82105115324', "Receiver's Account Number": '65114110537', 'Type': 1, 'Amount': 2000.0, 'Time': datetime.datetime(2026, 5, 24, 15, 31, 3, 447471)}
+{"Sender's Account Number": '82971066514', "Receiver's Account Number": '82971066514', 'Type': 1, 'Amount': 2000.0, 'Time': datetime.datetime(2026, 5, 24, 16, 43, 1, 183909)}
+{"Sender's Account Number": '82971066514', "Receiver's Account Number": '80114105813', 'Type': 1, 'Amount': 200.0, 'Time': datetime.datetime(2026, 5, 24, 16, 43, 35, 820220)}
